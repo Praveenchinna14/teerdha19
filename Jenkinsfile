@@ -13,24 +13,14 @@ pipeline{
    }
  }           
 }
-        stage('dev'){
+        stage('prod'){
 
       steps  {
             sh '''
             terraform init
-            terraform plan -out=Prod.tfplan
-            terraform apply Prod.tfplan
+            terraform plan -out=prod.tfplan
+            terraform apply prod.tfplan
             '''
-            }
-        }
-        stage('prod'){
-
-        steps  {    
-          sh '''
-            terraform init
-            terraform plan -out=Prod.tfplan
-            terraform apply Prod.tfplan
-            ''' 
             }
         }
     }
