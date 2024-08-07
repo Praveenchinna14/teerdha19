@@ -9,7 +9,7 @@ resource "aws_instance" "name" {
   key_name = "praveen"
   vpc_security_group_ids = [ "sg-0e7783eb3e866cde2" ]
   tags = {
-    Name = "prof.tf"
+    Name = "prod"
   }
   
 provisioner "remote-exec" {
