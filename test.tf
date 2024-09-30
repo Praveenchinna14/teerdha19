@@ -1,14 +1,14 @@
 provider "aws" {
-  region = "us-east-2"
+  region = "ap-south-1"
 }
 
-resource "aws_instance" "dev" {
-  ami = "ami-0862be96e41dcbf74"
+resource "aws_instance" "test" {
+  ami = "ami-0522ab6e1ddcc7055"
   instance_type = "t2.medium"
-  key_name = "praveen"
-  vpc_security_group_ids = [ "sg-0e7783eb3e866cde2" ]
+  key_name = "kumar"
+  vpc_security_group_ids = [ "sg-0ade4673820097009" ]
   tags = {
-    Name = "dev"
+    Name = "test"
   }
   
 provisioner "remote-exec" {
@@ -40,7 +40,7 @@ provisioner "remote-exec" {
     connection {
       type     = "ssh"
       user     = "ubuntu"  
-      private_key = file("praveen.pem")  
+      private_key = file("kumar.pem")  
       host     = self.public_ip  
     }
  }
