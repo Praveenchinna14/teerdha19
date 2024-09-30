@@ -9,15 +9,6 @@ pipeline{
    }
  }           
 }
-        stage('dev'){
-
-      steps  {
-            sh '''
-            terraform init
-            terraform apply -var-file=dev.tfvars -auto-approve
-            '''
-            }
-        }
         stage('prod'){
             steps {
                 sh '''
@@ -26,13 +17,5 @@ pipeline{
                 '''
             }
         }
-        stage('test'){
-            steps {
-                sh '''
-                terraform init
-                terraform apply -var-file=test.tfvars -auto-approve
-                '''
-            }
-        }  
     }
 }
