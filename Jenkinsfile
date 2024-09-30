@@ -10,6 +10,9 @@ pipeline{
  }           
 }
         stage('dev'){
+            when {
+                branch 'prod'
+            }
 
       steps  {
             sh '''
